@@ -1,0 +1,18 @@
+.toggle-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 50;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+@media (max-width: 768px) {
+  .toggle-button {
+    bottom: 10px;
+    right: 10px;
+    font-size: 14px;
+    padding: 8px 12px;
+  }
+}

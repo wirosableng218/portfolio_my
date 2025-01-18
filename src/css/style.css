@@ -1,0 +1,95 @@
+body {
+  background-color: #f0f0f0;
+  font-family: Arial, sans-serif;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.light-mode {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+.dark-mode {
+  background-color: #333333;
+  color: #ffffff;
+}
+
+/* Gaya untuk tombol */
+.toggle-button {
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+  background-color: #007bff;
+  /* Warna latar belakang tombol */
+  color: primary;
+  /* Warna teks tombol */
+  margin: 20px 0;
+  position: fixed;
+  /* Memastikan tombol tetap di tempat */
+  bottom: 20px;
+  /* Jarak dari bawah */
+  right: 20px;
+  /* Jarak dari kanan */
+  z-index: 1000;
+  /* Pastikan tombol di atas elemen lain */
+}
+
+.toggle-button:hover {
+  background-color: #0056b3;
+  /* Warna saat hover */
+}
+
+.toggle-button:focus {
+  outline: none;
+  /* Menghilangkan outline saat fokus */
+}
+
+.content {
+  margin-top: 20px;
+  /* Atur jarak atas jika diperlukan */
+}
+
+.text-secondary {
+  margin-bottom: 10px;
+  /* Jarak bawah untuk memisahkan dari teks berikutnya */
+}
+
+/* Override semua background gradient */
+.bg-gradient,
+[class*="bg-gradient"] {
+  background: transparent !important;
+}
+
+/* Pastikan hanya teks yang memiliki gradient */
+.text-gradient {
+  background: linear-gradient(to right, #ff0066, #6600ff);
+  -webkit-text-fill-color: transparent;
+  background-color: transparent !important;
+}
+
+/* Reset semua background */
+nav div,
+nav a,
+nav div div {
+  background: none !important;
+  background-color: transparent !important;
+}
+
+/* Khusus untuk teks gradient */
+.text-gradient {
+  background: linear-gradient(to right, #ff0066, #6600ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Gaya untuk Home */
+.home {
+  background-color: #f0f0f0;
+  /* Ganti dengan warna yang diinginkan */
+  color: #333;
+  /* Ganti dengan warna teks yang diinginkan */
+}
