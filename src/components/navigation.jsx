@@ -107,7 +107,7 @@ export default function Navigation() {
           {/* Social Icons - Desktop */}
           <div className="hidden md:flex items-center space-x-4">
             <a
-              href="https://github.com/yourusername"
+              href="https://github.com/wirosableng218"
               className="text-gray-700 hover:text-gray-900 transition-colors"
               target="_blank"
               rel="noopener noreferrer"
@@ -116,7 +116,7 @@ export default function Navigation() {
               <Github size={20} />
             </a>
             <a
-              href="https://linkedin.com/in/yourusername"
+              href="https://linkedin.com/in/yudhasaputro82@gmail.com"
               className="text-gray-700 hover:text-blue-700 transition-colors"
               target="_blank"
               rel="noopener noreferrer"
