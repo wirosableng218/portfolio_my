@@ -1,22 +1,20 @@
 import React, { useState, useEffect } from "react"
-import { BiMenu, BiX } from "react-icons/bi"
-import { BsGithub, BsLinkedin } from "react-icons/bs"
+import { Menu } from "lucide-react"
+import { Github, Linkedin, BookOpen } from "lucide-react"
 import AOS from "aos"
 import "aos/dist/aos.css"
 import { Link as RouterLink, useLocation } from "react-router-dom"
+import { useMediaQuery } from "react-responsive"
 
 export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isVisible, setIsVisible] = useState(true)
   const location = useLocation()
+  const isDesktop = useMediaQuery({ query: "(min-width: 1024px)" })
 
   useEffect(() => {
-    AOS.init({
-      duration: 1000,
-      once: true,
-    })
-
+    AOS.init({ duration: 1000, once: true })
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50)
       setIsVisible(window.scrollY < 50)
@@ -25,19 +23,12 @@ export default function Navigation() {
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
-  const handleMouseEnter = () => {
-    setIsVisible(true)
-  }
-
+  const handleMouseEnter = () => setIsVisible(true)
   const handleMouseLeave = () => {
-    if (window.scrollY > 50) {
-      setIsVisible(false)
-    }
+    if (window.scrollY > 50) setIsVisible(false)
   }
 
-  if (location.pathname === "/contact") {
-    return null
-  }
+  if (location.pathname === "/contact") return null
 
   return (
     <nav
@@ -47,137 +38,176 @@ export default function Navigation() {
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      <div className="container mx-auto max-w-[1200px] px-20">
-        <div className="flex justify-between">
+      <div className="container mx-auto max-w-[1200px] px-4 md:px-20">
+        <div className="flex justify-between items-center">
           {/* Logo */}
           <RouterLink
             to="/"
-            className="cursor-pointer"
+            className="cursor-pointer flex items-center"
           >
             <div>
               <h1
                 className="text-[30px] leading-none font-bold text-gradient"
                 data-aos="fade-right"
-                data-aos-duration="1000"
-                data-aos-delay="100"
               >
                 Yudha
               </h1>
               <h3
                 className="text-[24px] leading-none font-normal text-gradient"
                 data-aos="fade-right"
-                data-aos-duration="1000"
-                data-aos-delay="200"
+                data-aos-delay="100"
               >
                 Cahyo
               </h3>
               <h5
                 className="text-[20px] leading-none font-semibold text-gradient"
                 data-aos="fade-right"
-                data-aos-duration="1000"
-                data-aos-delay="300"
+                data-aos-delay="200"
               >
                 Saputro
               </h5>
             </div>
           </RouterLink>
 
-          {/* Desktop Navigation */}
-          <div
-            className="hidden lg:flex items-center space-x-8"
-            data-aos="fade-down"
-            data-aos-duration="1000"
-            data-aos-delay="100"
-          >
+          {/* Navbar Links - Desktop */}
+          <div className="hidden md:flex space-x-8">
             <RouterLink
               to="/"
-              className="text-gray-600 hover:text-primary"
+              className="text-gray-700 hover:text-blue-500 transition duration-300"
+              data-aos="fade-down"
             >
               Home
             </RouterLink>
             <RouterLink
               to="/profile"
-              className="text-gray-600 hover:text-primary"
+              className="text-gray-700 hover:text-blue-500 transition duration-300"
+              data-aos="fade-down"
+              data-aos-delay="100"
             >
               Profile
             </RouterLink>
             <RouterLink
               to="/portfolio"
-              className="text-gray-600 hover:text-primary"
+              className="text-gray-700 hover:text-blue-500 transition duration-300"
+              data-aos="fade-down"
+              data-aos-delay="200"
             >
               Portfolio
             </RouterLink>
             <RouterLink
               to="/contact"
-              className="text-gray-600 hover:text-primary"
+              className="text-gray-700 hover:text-blue-500 transition duration-300"
+              data-aos="fade-down"
+              data-aos-delay="300"
             >
               Contact
             </RouterLink>
           </div>
 
-          {/* Social Icons */}
-          <div
-            className="flex items-center space-x-4"
-            data-aos="zoom-out-left"
-            data-aos-duration="2000"
-            data-aos-delay="0"
-          >
-            <a href="https://github.com/yourusername">
-              <BsGithub />
+          {/* Social Icons - Desktop */}
+          <div className="hidden md:flex items-center space-x-4">
+            <a
+              href="https://github.com/yourusername"
+              className="text-gray-700 hover:text-gray-900 transition-colors"
+              target="_blank"
+              rel="noopener noreferrer"
+              data-aos="fade-left"
+            >
+              <Github size={20} />
             </a>
-            <a href="https://linkedin.com/in/yourusername">
-              <BsLinkedin />
+            <a
+              href="https://linkedin.com/in/yourusername"
+              className="text-gray-700 hover:text-blue-700 transition-colors"
+              target="_blank"
+              rel="noopener noreferrer"
+              data-aos="fade-left"
+              data-aos-delay="100"
+            >
+              <Linkedin size={20} />
+            </a>
+            <a
+              href="/blog"
+              className="text-gray-700 hover:text-red-700 transition-colors"
+              data-aos="fade-left"
+              data-aos-delay="200"
+            >
+              <BookOpen size={20} />
             </a>
           </div>
 
           {/* Mobile Menu Button */}
           <button
-            className="lg:hidden text-gray-600 hover:text-primary transition-colors"
+            className="md:hidden text-gray-600 hover:text-primary transition-colors w-10 h-10 flex items-center justify-center rounded-full bg-gray-100 hover:bg-gray-200"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            data-aos="fade-left"
-            data-aos-duration="1000"
           >
-            {isMenuOpen ? <BiX size={24} /> : <BiMenu size={24} />}
+            {isMenuOpen ? "✕" : "☰"}
           </button>
         </div>
 
         {/* Mobile Menu */}
-        <div
-          className={`lg:hidden ${isMenuOpen ? "block" : "hidden"} pt-4`}
-          data-aos="fade-down"
-          data-aos-duration="800"
-        >
-          <div className="flex flex-col space-y-4">
-            <RouterLink
-              to="/"
-              onClick={() => setIsMenuOpen(false)}
-              className="text-gray-600 hover:text-primary"
-            >
-              Home
-            </RouterLink>
-            <RouterLink
-              to="/profile"
-              onClick={() => setIsMenuOpen(false)}
-              className="text-gray-600 hover:text-primary"
-            >
-              Profile
-            </RouterLink>
-            <RouterLink
-              to="/portfolio"
-              onClick={() => setIsMenuOpen(false)}
-              className="text-gray-600 hover:text-primary"
-            >
-              Portfolio
-            </RouterLink>
-            <RouterLink
-              to="/contact"
-              onClick={() => setIsMenuOpen(false)}
-              className="text-gray-600 hover:text-primary"
-            >
-              Contact
-            </RouterLink>
+        {isMenuOpen && !isDesktop && (
+          <div
+            className="absolute top-full left-0 w-full bg-white/95 dark:bg-gray-900/95 backdrop-blur-md shadow-lg py-4 px-4 transition-all duration-300 ease-in-out"
+            data-aos="fade-down"
+          >
+            <div className="flex flex-col space-y-3">
+              <RouterLink
+                to="/"
+                onClick={() => setIsMenuOpen(false)}
+                className="text-gray-700 hover:text-blue-500 transition-all duration-300 py-2 px-4 rounded-lg hover:bg-gray-100"
+              >
+                Home
+              </RouterLink>
+              <RouterLink
+                to="/profile"
+                onClick={() => setIsMenuOpen(false)}
+                className="text-gray-700 hover:text-blue-500 transition-all duration-300 py-2 px-4 rounded-lg hover:bg-gray-100"
+              >
+                Profile
+              </RouterLink>
+              <RouterLink
+                to="/portfolio"
+                onClick={() => setIsMenuOpen(false)}
+                className="text-gray-700 hover:text-blue-500 transition-all duration-300 py-2 px-4 rounded-lg hover:bg-gray-100"
+              >
+                Portfolio
+              </RouterLink>
+              <RouterLink
+                to="/contact"
+                onClick={() => setIsMenuOpen(false)}
+                className="text-gray-700 hover:text-blue-500 transition-all duration-300 py-2 px-4 rounded-lg hover:bg-gray-100"
+              >
+                Contact
+              </RouterLink>
+            </div>
+
+            {/* Mobile Social Icons */}
+            <div className="flex justify-center space-x-6 mt-6 pt-6 border-t border-gray-200">
+              <a
+                href="https://github.com/yourusername"
+                className="text-gray-600 hover:text-gray-900 transition-all duration-300 transform hover:scale-110"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Github size={24} />
+              </a>
+              <a
+                href="https://linkedin.com/in/yourusername"
+                className="text-gray-600 hover:text-blue-700 transition-all duration-300 transform hover:scale-110"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Linkedin size={24} />
+              </a>
+              <a
+                href="/blog"
+                className="text-gray-600 hover:text-red-700 transition-all duration-300 transform hover:scale-110"
+              >
+                <BookOpen size={24} />
+              </a>
+            </div>
           </div>
-        </div>
+        )}
       </div>
     </nav>
   )

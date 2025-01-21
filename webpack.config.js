@@ -1,3 +1,5 @@
+const path = require("path")
+
 export const resolve = {
   fallback: {
     stream: require.resolve("stream-browserify"),
@@ -9,5 +11,14 @@ export const resolve = {
     path: require.resolve("path-browserify"),
     http: require.resolve("stream-http"),
     dns: require.resolve("dns"),
+  },
+}
+
+module.exports = {
+  devtool: false,
+  module: {
+    rules: [
+      // ...
+    ],
   },
 }
