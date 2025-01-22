@@ -116,7 +116,7 @@ export default function Navigation() {
               <Github size={20} />
             </a>
             <a
-              href="https://www.linkedin.com/in/yudha-cahyo-9462631b1/"
+              href="https://www.linkedin.com/in/yudha-cahyo-9462631b1"
               className="text-gray-700 hover:text-blue-700 transition-colors"
               target="_blank"
               rel="noopener noreferrer"
