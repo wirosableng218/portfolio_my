@@ -192,7 +192,7 @@ export default function Navigation() {
                 <Github size={24} />
               </a>
               <a
-                href="https://linkedin.com/in/yourusername"
+                href="https://www.linkedin.com/in/yudha-cahyo-9462631b1"
                 className="text-gray-600 hover:text-blue-700 transition-all duration-300 transform hover:scale-110"
                 target="_blank"
                 rel="noopener noreferrer"
