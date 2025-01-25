@@ -32,7 +32,7 @@ export default function Header() {
             <RouterLink to="/contact" className="text-gray-600 hover:text-primary">Contact</RouterLink>
             <div className="flex space-x-4">
               <a href="https://github.com/yourusername"><BsGithub /></a>
-              <a href="https://linkedin.com/in/yourusername"><BsLinkedin /></a>
+              <a href="https://www.linkedin.com/in/yudha-cahyo-9462631b1"><BsLinkedin /></a>
             </div>
           </div>
         ) : (
