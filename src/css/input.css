@@ -2,3 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+input, textarea {
+    width: 100%; /* Pastikan elemen input memenuhi lebar container */
+    box-sizing: border-box; /* Memastikan padding tidak menambah lebar total */
+    /* Tambahkan styling lain yang diperlukan */
+}
+

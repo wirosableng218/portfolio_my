@@ -16,3 +16,12 @@
     padding: 8px 12px;
   }
 }
+
+.app-container {
+  max-width: 100%;
+  overflow-x: hidden;
+  /* Mencegah scroll horizontal */
+  padding-top: 60px;
+  /* Sesuaikan dengan tinggi navbar */
+  /* Tambahkan styling lain yang diperlukan */
+}

@@ -1,16 +1,15 @@
 import React, { useState, useEffect } from "react"
-import { Menu } from "lucide-react"
+//import { Menu } from "lucide-react"
 import { Github, Linkedin, BookOpen } from "lucide-react"
 import AOS from "aos"
 import "aos/dist/aos.css"
-import { Link as RouterLink, useLocation } from "react-router-dom"
+import { Link as RouterLink } from "react-router-dom"
 import { useMediaQuery } from "react-responsive"
 
 export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isVisible, setIsVisible] = useState(true)
-  const location = useLocation()
   const isDesktop = useMediaQuery({ query: "(min-width: 1024px)" })
 
   useEffect(() => {
@@ -27,8 +26,6 @@ export default function Navigation() {
   const handleMouseLeave = () => {
     if (window.scrollY > 50) setIsVisible(false)
   }
-
-  if (location.pathname === "/contact") return null
 
   return (
     <nav
@@ -116,7 +113,7 @@ export default function Navigation() {
               <Github size={20} />
             </a>
             <a
-              href="https://www.linkedin.com/in/yudha-cahyo-9462631b1"
+              href="https://linkedin.com/in/yudha-cahyo-9462631b1"
               className="text-gray-700 hover:text-blue-700 transition-colors"
               target="_blank"
               rel="noopener noreferrer"
@@ -147,7 +144,7 @@ export default function Navigation() {
         {/* Mobile Menu */}
         {isMenuOpen && !isDesktop && (
           <div
-            className="absolute top-full left-0 w-full bg-white/95 dark:bg-gray-900/95 backdrop-blur-md shadow-lg py-4 px-4 transition-all duration-300 ease-in-out"
+            className="absolute top-12 left-0 w-full bg-white/95 dark:bg-gray-900/95 backdrop-blur-md shadow-lg py-4 px-4 transition-all duration-300 ease-in-out z-50"
             data-aos="fade-down"
           >
             <div className="flex flex-col space-y-3">
@@ -192,7 +189,7 @@ export default function Navigation() {
                 <Github size={24} />
               </a>
               <a
-                href="https://www.linkedin.com/in/yudha-cahyo-9462631b1"
+                href="https://linkedin.com/in/yourusername"
                 className="text-gray-600 hover:text-blue-700 transition-all duration-300 transform hover:scale-110"
                 target="_blank"
                 rel="noopener noreferrer"

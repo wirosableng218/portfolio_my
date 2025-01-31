@@ -9,6 +9,7 @@ const Home = () => {
     <div
       id="home"
       className="section container mx-auto max-w-[1200px] px-4 py-10 items-center"
+      style={{ marginTop: "100px" }}
     >
       <div className="w-full">
         <div className="block text-center font-secondary font-black text-[36px] mb-4">Halo, Saya Yudha Cahyo Saputro! - Web Developer</div>

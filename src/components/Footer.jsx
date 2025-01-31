@@ -5,6 +5,7 @@ export default function Footer() {
     <footer
       id="footer"
       className="bg-gradient-to-r from-primary/10 to-secondary/10 py-16"
+      style={{ marginTop: "150px" }}
     >
       <div className="container mx-auto max-w-[1200px] px-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">

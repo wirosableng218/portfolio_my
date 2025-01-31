@@ -1,4 +1,5 @@
 import React, { useState } from "react"
+import Navigation from "./navigation"
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -67,79 +68,85 @@ export default function Contact() {
   }
 
   return (
-    <div className="max-w-2xl mx-auto p-6">
-      <h2 className="text-3xl font-bold mb-6 text-center">Hubungi Kami</h2>
-
-      {error && <div className="mb-4 p-4 text-red-700 bg-red-100 rounded-md">⚠️ {error}</div>}
-
-      {success && <div className="mb-4 p-4 text-green-700 bg-green-100 rounded-md">✅ Pesan berhasil dikirim! Terima kasih telah menghubungi kami.</div>}
-
-      <form
-        onSubmit={handleSubmit}
-        className="space-y-4"
+    <>
+      <Navigation />
+      <div
+        className="max-w-2xl mx-auto p-6"
+        style={{ marginTop: "100px" }}
       >
-        <div>
-          <label
-            htmlFor="name"
-            className="block text-sm font-medium mb-1"
-          >
-            Nama
-          </label>
-          <input
-            type="text"
-            id="name"
-            name="name"
-            value={formData.name}
-            onChange={handleChange}
-            className="w-full p-2 border rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-            placeholder="Masukkan nama Anda"
-          />
-        </div>
+        <h2 className="text-3xl font-bold mb-6 text-center">Hubungi Kami</h2>
 
-        <div>
-          <label
-            htmlFor="email"
-            className="block text-sm font-medium mb-1"
-          >
-            Email
-          </label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-            className="w-full p-2 border rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-            placeholder="Masukkan email Anda"
-          />
-        </div>
+        {error && <div className="mb-4 p-4 text-red-700 bg-red-100 rounded-md">⚠️ {error}</div>}
 
-        <div>
-          <label
-            htmlFor="message"
-            className="block text-sm font-medium mb-1"
-          >
-            Pesan
-          </label>
-          <textarea
-            id="message"
-            name="message"
-            value={formData.message}
-            onChange={handleChange}
-            rows="4"
-            className="w-full p-2 border rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-            placeholder="Tulis pesan Anda"
-          />
-        </div>
+        {success && <div className="mb-4 p-4 text-green-700 bg-green-100 rounded-md">✅ Pesan berhasil dikirim! Terima kasih telah menghubungi kami.</div>}
 
-        <button
-          type="submit"
-          disabled={loading}
-          className="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+        <form
+          onSubmit={handleSubmit}
+          className="space-y-4"
         >
-          {loading ? <>⏳ Mengirim...</> : <>📤 Kirim Pesan</>}
-        </button>
-      </form>
-    </div>
+          <div>
+            <label
+              htmlFor="name"
+              className="block text-sm font-medium mb-1"
+            >
+              Nama
+            </label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              value={formData.name}
+              onChange={handleChange}
+              className="w-full p-2 border rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              placeholder="Masukkan nama Anda"
+            />
+          </div>
+
+          <div>
+            <label
+              htmlFor="email"
+              className="block text-sm font-medium mb-1"
+            >
+              Email
+            </label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              className="w-full p-2 border rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              placeholder="Masukkan email Anda"
+            />
+          </div>
+
+          <div>
+            <label
+              htmlFor="message"
+              className="block text-sm font-medium mb-1"
+            >
+              Pesan
+            </label>
+            <textarea
+              id="message"
+              name="message"
+              value={formData.message}
+              onChange={handleChange}
+              rows="4"
+              className="w-full p-2 border rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              placeholder="Tulis pesan Anda"
+            />
+          </div>
+
+          <button
+            type="submit"
+            disabled={loading}
+            className="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+          >
+            {loading ? <>⏳ Mengirim...</> : <>📤 Kirim Pesan</>}
+          </button>
+        </form>
+      </div>
+    </>
   )
 }

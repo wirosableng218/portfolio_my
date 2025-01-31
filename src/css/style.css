@@ -48,8 +48,10 @@ body {
 }
 
 .content {
-  margin-top: 20px;
-  /* Atur jarak atas jika diperlukan */
+  margin-top: 100px;
+  /* Sesuaikan dengan tinggi navbar dan jarak yang diinginkan */
+  z-index: 1;
+  /* Pastikan lebih rendah dari navbar */
 }
 
 .text-secondary {
@@ -92,4 +94,55 @@ nav div div {
   /* Ganti dengan warna yang diinginkan */
   color: #333;
   /* Ganti dengan warna teks yang diinginkan */
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  /* Tambahkan padding atau margin jika diperlukan */
+}
+
+.item {
+  flex: 1 1 100%;
+  /* Default untuk layar kecil */
+  /* Tambahkan styling lain yang diperlukan */
+}
+
+@media (min-width: 600px) {
+  .item {
+    flex: 1 1 48%;
+    /* Atur ulang untuk layar yang lebih besar */
+  }
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: #ffffff;
+  height: 50px;
+  /* Sesuaikan tinggi navbar */
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    height: 50px;
+    /* Sesuaikan tinggi navbar untuk ponsel */
+  }
+
+  .content {
+    margin-top: 70px;
+    /* Sesuaikan dengan tinggi navbar untuk ponsel */
+  }
+}
+
+.contact-content {
+  margin-top: 100px;
+  /* Sesuaikan dengan jarak yang diinginkan */
+}
+
+.footer-content {
+  margin-top: 100px;
+  /* Sesuaikan dengan jarak yang diinginkan */
 }
