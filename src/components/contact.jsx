@@ -39,8 +39,7 @@ export default function Contact() {
 
     setLoading(true)
     try {
-      // Send email through backend API
-      const response = await fetch("http://localhost:5000/api/email/send", {
+      const response = await fetch("http://localhost:5002/api/email/send", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -52,10 +51,6 @@ export default function Contact() {
         const error = await response.json()
         throw new Error(error.message || "Terjadi kesalahan saat mengirim email")
       }
-
-      // Open WhatsApp in new tab
-      const waMessage = `https://wa.me/6285852345718?text=Halo, saya ingin menghubungi Anda. Saya tertarik dengan profil Anda dan ingin berdiskusi lebih lanjut. Nama saya ${formData.name}, email saya ${formData.email}, dan pesan saya adalah: ${formData.message}`
-      window.open(waMessage, "_blank")
 
       setSuccess(true)
       setFormData({ name: "", email: "", message: "" })

@@ -115,14 +115,33 @@ nav div div {
   }
 }
 
+/* Gaya untuk navbar */
 .navbar {
   position: fixed;
   top: 0;
   width: 100%;
-  z-index: 1000;
-  background-color: #ffffff;
   height: 50px;
-  /* Sesuaikan tinggi navbar */
+  background-color: #460303;
+  z-index: 1000;
+  border: 1px solid red;
+  /* Tambahkan border untuk debugging */
+}
+
+.navbar::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background: #007bff;
+  transform: translateX(-50%) scaleX(0);
+  transition: transform 0.3s ease;
+  z-index: 1;
+}
+
+.navbar:hover::after {
+  transform: translateX(-50%) scaleX(1);
 }
 
 @media (max-width: 768px) {
@@ -145,4 +164,65 @@ nav div div {
 .footer-content {
   margin-top: 100px;
   /* Sesuaikan dengan jarak yang diinginkan */
+}
+
+/* Animasi untuk navbar */
+.fade-enter {
+  opacity: 0;
+}
+
+.fade-enter-active {
+  opacity: 1;
+}
+
+.fade-exit {
+  opacity: 1;
+}
+
+.fade-exit-active {
+  opacity: 0;
+}
+
+/* Gaya untuk tautan navbar */
+.nav-link {
+  position: relative;
+  color: #333;
+  text-decoration: none;
+  padding: 10px;
+  transition: color 0.3s ease;
+  border: 1px solid red;
+  /* Tambahkan border untuk debugging */
+}
+
+/* Efek garis bawah untuk tautan navbar */
+.nav-link::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: -5px;
+  /* Jarak dari teks */
+  width: 100%;
+  height: 2px;
+  /* Tinggi garis bawah */
+  background: linear-gradient(to right, #ff0066, #007bff);
+  /* Ganti dengan gradien warna logo */
+  transform: translateX(-50%) scaleX(0);
+  /* Mulai dari tidak terlihat */
+  transition: transform 0.3s ease;
+  /* Transisi untuk garis bawah */
+  z-index: 2;
+  /* Pastikan garis bawah muncul di atas */
+}
+
+/* Tampilkan garis bawah saat tautan di-hover */
+.nav-link:hover::after {
+  transform: translateX(-50%) scaleX(1);
+  /* Tampilkan garis bawah saat hover */
+}
+
+.nav-link:hover {
+  color: #007bff;
+  /* Ubah warna saat hover */
+  background-color: rgba(0, 255, 0, 0.1);
+  /* Tambahkan warna latar belakang saat hover */
 }
